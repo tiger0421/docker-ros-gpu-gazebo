@@ -1,8 +1,9 @@
 ARG BASE_TAG
 FROM nvidia/opengl:${BASE_TAG}
 
-RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/apt/sources.list && \
-    apt update && \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/apt/sources.list
+RUN apt update && \
     apt install -y \
         software-properties-common \
         git \
