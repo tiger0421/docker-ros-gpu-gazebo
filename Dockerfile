@@ -2,7 +2,8 @@ ARG BASE_TAG
 FROM nvidia/opengl:${BASE_TAG}
 
 RUN apt update && \
-    apt install lsb-release && \
+    apt install -y \
+        lsb-release && \
     apt auroremove && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
