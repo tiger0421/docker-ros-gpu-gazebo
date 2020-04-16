@@ -3,7 +3,7 @@ FROM nvidia/opengl:${BASE_TAG}
 
 RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/apt/sources.list && \
     apt update && \
-    apt install -y --no-install-recommends \
+    apt install -y \
         software-properties-common \
         git \
         curl \
@@ -11,9 +11,10 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
         lsb-release \
         python3-argcomplete \
         gnupg2 \
+        dirmngr --install-recommends \
     && \
-    sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(/usr/bin/lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' && \
-    apt-key adv --keyserver 'hkp://ha.pool.sks-keyservers.net:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654 \
+    echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list && \
+    wget http://packages.ros.org/ros.key -O - | apt-key add - \
     && \
     if [ $(echo ${BASE_TAG} | grep 18.04) ]; then ROS_DISTRO='melodic'; else ROS_DISTRO=kinetic; fi \
     apt update && \
