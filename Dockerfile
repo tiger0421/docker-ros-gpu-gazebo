@@ -2,7 +2,9 @@ ARG BASE_TAG
 FROM nvidia/opengl:${BASE_TAG}
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends lsb-release && \
+    apt-get install -y --no-install-recommends lsb-release \
+    gnupg \
+    gnupg2 && \
     apt-get autoremove && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
