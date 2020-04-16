@@ -2,8 +2,8 @@ ARG BASE_TAG
 FROM nvidia/opengl:${BASE_TAG}
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/apt/sources.list
-RUN apt update && \
+RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/apt/sources.list && \
+    apt update && \
     apt install -y \
         software-properties-common \
         git \
@@ -12,7 +12,7 @@ RUN apt update && \
         lsb-release \
         python3-argcomplete \
         gnupg2 \
-        dirmngr --install-recommends \
+        dirmngr \
     && \
     echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list && \
     wget http://packages.ros.org/ros.key -O - | apt-key add - \
