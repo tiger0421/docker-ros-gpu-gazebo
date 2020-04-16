@@ -6,7 +6,7 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/
 
 RUN if [ $(echo ${BASE_TAG} | grep 18.04) ]; then ROS_DISTRO='melodic'; else ROS_DISTRO=kinetic \
     apt update && \
-    apt install  \
+    apt install -y \
         ros-${ROS_DISTRO}-desktop-full && \
     apt autoremove && \
     apt clean && \
