@@ -3,7 +3,7 @@ FROM nvidia/opengl:${BASE_TAG}
 
 RUN apt update && \
     apt install -y --no-install-recommends lsb-release && \
-    apt auroremove && \
+    apt autoremove && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
