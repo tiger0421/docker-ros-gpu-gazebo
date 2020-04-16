@@ -2,8 +2,7 @@ ARG BASE_TAG
 FROM nvidia/opengl:${BASE_TAG}
 
 RUN apt update && \
-    apt install -y --no-install-recommends \
-        lsb-release && \
+    apt install -y --no-install-recommends lsb-release && \
     apt auroremove && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
@@ -13,8 +12,7 @@ RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb-release -sc) main"
 
 RUN if [ $(echo ${BASE_TAG} | grep 18.04) ]; then ROS_DISTRO='melodic'; else ROS_DISTRO=kinetic; fi \
     apt update && \
-    apt install -y --no-install-recommends \
-        ros-${ROS_DISTRO}-desktop-full && \
+    apt install -y --no-install-recommends ros-${ROS_DISTRO}-desktop-full && \
     apt autoremove && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
