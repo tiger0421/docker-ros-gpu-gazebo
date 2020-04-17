@@ -12,5 +12,5 @@ if [ $(echo $DOCKER_TAG | grep ID | grep 18.04) ]; then
 else
     ROS_DISTRO="kinetic";
 fi
-
+echo "##################################" && echo $ROS_DISTRO && echo "##########################"
 docker build --build-arg BASE_TAG=$DOCKER_TAG --build-arg ROS_DISTRO=$ROS_DISTRO $DOCKERFILE_PATH_ARG -t $IMAGE_NAME .
