@@ -1,6 +1,7 @@
 ARG BASE_TAG
 FROM nvidia/opengl:$BASE_TAG
 
+ARG ROS_DISTRO
 RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/apt/sources.list && \
     apt update && \
     apt install -y \
@@ -16,7 +17,6 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
     echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list && \
     wget http://packages.ros.org/ros.key -O - | apt-key add - \
     && \
-    if [ $(cat /etc/os-release | grep 18.04) ]; then ROS_DISTRO='melodic'; else ROS_DISTRO='kinetic'; fi && \
     apt update && \
     apt install -y --no-install-recommends \
         ros-$ROS_DISTRO-desktop-full \
