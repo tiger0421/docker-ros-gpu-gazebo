@@ -7,7 +7,7 @@ else
     DOCKERFILE_PATH_ARG="-f $DOCKERFILE_PATH"
 fi
 
-if [ $(cat /etc/os-release | grep ID | grep 18.04) ]; then
+if [ $(echo $DOCKER_TAG | grep ID | grep 18.04) ]; then
     ROS_DISTRO="melodic";
 else
     ROS_DISTRO="kinetic";
