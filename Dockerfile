@@ -29,8 +29,7 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
         python-rosdep \
         python-rosinstall-generator \
         python-wstool \
-        python-rosinstall \
-        build-essential && \
+        python-rosinstall && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
