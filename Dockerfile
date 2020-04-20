@@ -18,7 +18,6 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
         g++ \
         fluid \
         python-rosdep \
-        python-rosinstall-generator \
         python-wstool \
         python-rosinstall \
         build-essential \
