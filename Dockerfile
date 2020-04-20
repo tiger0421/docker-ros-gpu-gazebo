@@ -17,7 +17,7 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
         dirmngr \
         g++ \
         fluid \
-        python-wstool \
+        build-essential \
     && \
     echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list && \
     wget http://packages.ros.org/ros.key -O - | apt-key add - \
@@ -25,7 +25,12 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
     apt update && \
     apt install -y --no-install-recommends \
         ros-$ROS_DISTRO-desktop-full \
-        python-catkin-tools && \
+        python-catkin-tools \
+        python-rosdep \
+        python-rosinstall-generator \
+        python-wstool \
+        python-rosinstall \
+        build-essential && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
