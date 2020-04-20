@@ -29,7 +29,7 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
     apt install -y --no-install-recommends \
         ros-$ROS_DISTRO-desktop-full \
         python-catkin-tools && \
-    apt autoremove && \
+    apt autoremove -y && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
 
