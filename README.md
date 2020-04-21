@@ -9,14 +9,14 @@
 ```
 curl https://raw.githubusercontent.com/tiger0421/docker-ros-gpu-gazebo/master/launch.sh > launch.sh
 sudo chmod a+x launch.sh
-launch.sh 
+sh launch.sh 
 gazebo
 ```
 
 specify a container
 
 ```
-launch.sh tiger0421/ros-gpu-gazebo:1.1-glvnd-runtime-ubuntu16.04
+sh launch.sh tiger0421/ros-gpu-gazebo:1.1-glvnd-runtime-ubuntu16.04
 ```
 
 # Build
