@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 xhost +local:root
 
 IMAGE_NAME=$1
