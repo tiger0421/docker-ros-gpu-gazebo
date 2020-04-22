@@ -18,6 +18,8 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
         g++ \
         fluid \
         build-essential \
+        vim \
+        tmux \
     && \
     echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list && \
     wget http://packages.ros.org/ros.key -O - | apt-key add - \
