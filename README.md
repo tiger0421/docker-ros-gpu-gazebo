@@ -16,7 +16,7 @@ gazebo
 specify a container
 
 ```
-sh launch.sh tiger0421/ros-gpu-gazebo:1.1-glvnd-runtime-ubuntu16.04
+sh launch.sh tiger0421/ros-gpu-gazebo:1.0-glvnd-runtime-ubuntu18.04
 ```
 
 # Build
