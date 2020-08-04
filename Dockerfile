@@ -41,4 +41,5 @@ RUN sed -i 's#http://tw.archive.ubuntu.com/#http://archive.ubuntu.com/#' /etc/ap
     rm -rf /var/lib/apt/lists/*
 RUN curl -kL https://bootstrap.pypa.io/get-pip.py | python
 
-
+WORKDIR /root
+RUN echo source /opt/ros/melodic/setup.bash >> /root/.bashrc
